@@ -19,5 +19,12 @@ public class Library {
             Book book = books[i];
             System.out.println("Имя книги: " + book.getName() + ", количество страниц: " + book.getPage());
         }
+
+        for(int i = 0; i<books.length; i++) {
+            Book book = books[i];
+            if(book.equals("Clean Code")) {
+                System.out.println("Имя книги: " + book.getName() + ", количество страниц: " + book.getPage());
+            }
+        }
     }
 }
