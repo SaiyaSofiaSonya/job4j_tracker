@@ -24,6 +24,7 @@ public class StartUI {
             }
         }
     }
+
         public static void createItem(Input input, Tracker tracker) {
             System.out.println("=== Create a new Item ====");
             String name = input.askStr("Enter name: ");
@@ -44,7 +45,7 @@ public class StartUI {
             }
         }
 
-        public static void deteleItem (Input input, Tracker tracker) {
+        public static void deteleItem(Input input, Tracker tracker) {
             System.out.println("=== Delete item ====");
             int id = Integer.parseInt(input.askStr("Enter id: "));
             if (tracker.delete(id)) {
@@ -53,7 +54,6 @@ public class StartUI {
                 System.out.println("Ошибка удаления заявки.");
             }
         }
-
 
         public static void findItemById(Input input, Tracker tracker) {
             System.out.println("=== Find item by id ====");
@@ -71,7 +71,7 @@ public class StartUI {
             String name = input.askStr("Enter name: ");
             Item[] items = tracker.findByName(name);
             if (items.length > 0) {
-                for(Item item:items) {
+                for (Item item:items) {
                     System.out.println(item);
                 }
             } else {
@@ -82,7 +82,7 @@ public class StartUI {
         public static void findAll(Input input, Tracker tracker) {
             System.out.println("=== Show all items ====");
             Item[] items = tracker.findAll();
-            if(items.length > 0) {
+            if (items.length > 0) {
                 for (Item item : items) {
                     System.out.println(item);
                 }
@@ -100,7 +100,7 @@ public class StartUI {
         };
         for (int i = 0; i < menu.length; i++) {
             System.out.println(i + ". " + menu[i]);
-         }
+        }
 
     }
 
