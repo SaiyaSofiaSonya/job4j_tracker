@@ -6,6 +6,8 @@ public class College {
     student.setEntered("01.09.2021");
     student.setGroup("History28");
     student.setName("Ivanov I.I");
-    System.out.println(student.getName() + " поступил " + student.getEntered() + " в " + student.getGroup());
+    System.out.println(student.getName()
+            + " поступил " + student.getEntered()
+            + " в " + student.getGroup());
     }
 }

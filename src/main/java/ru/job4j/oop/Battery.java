@@ -12,7 +12,6 @@ public class Battery {
         this.load = 0;
     }
 
-
     public static void main(String[] args) {
         Battery first = new Battery(10);
         Battery second = new Battery(5);
