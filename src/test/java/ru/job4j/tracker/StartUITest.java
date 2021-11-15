@@ -28,7 +28,7 @@ public class StartUITest{
         };
         StartUI.replaceItem(new StubInput(answers), tracker);
         Item edited = tracker.findAll()[0];
-        Item expected = null;
+        Item expected = new Item("edited item");
         assertThat(edited.getName(), is(expected.getName()));
     }
 }
