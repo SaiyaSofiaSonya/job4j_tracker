@@ -27,8 +27,21 @@ public class StartUITest{
                 String.valueOf(item.getId()), "edited item"
         };
         StartUI.replaceItem(new StubInput(answers), tracker);
-        Item edited = tracker.findAll()[0];
+        Item edited = tracker.findById(item.getId());
         Item expected = new Item("edited item");
         assertThat(edited.getName(), is(expected.getName()));
+    }
+
+    @Test
+    public void whenDeleteItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("new item");
+        tracker.add(item);
+        String[] answers = {
+                String.valueOf(item.getId())};
+        StartUI.deteleItem(new StubInput(answers), tracker);
+        Item deleted = tracker.findById(item.getId());
+        Item expected = null;
+        assertThat(deleted, is(expected));
     }
 }
