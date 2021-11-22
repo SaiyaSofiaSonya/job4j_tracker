@@ -6,7 +6,7 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.*;
 
 public class StartUITest{
-
+//Тесты для StartUI
     @Test
     public void whenCreateItem() {
         Input in = new StubInput(
