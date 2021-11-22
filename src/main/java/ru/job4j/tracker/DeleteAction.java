@@ -11,7 +11,7 @@ public class DeleteAction implements UserAction {
         System.out.println("=== Delete item ====");
         int id = input.askInt("Enter id: ");
         boolean run = tracker.delete(id);
-        if(!run) {
+        if (!run) {
             System.out.println("Ошибка удаления заявки.");
         } else {
             System.out.println("Заявка удалена успешно.");

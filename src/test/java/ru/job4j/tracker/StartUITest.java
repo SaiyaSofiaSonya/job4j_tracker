@@ -23,7 +23,8 @@ public class StartUITest{
     @Test
     public void whenReplaceItem() {
         Input in = new StubInput(new String[] {
-                "0", "Item name", "1", "1", "Edited name", "2"});
+                "0", "Item name", "1", "1",
+                "Edited name", "2"});
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(), new EditAction(),
