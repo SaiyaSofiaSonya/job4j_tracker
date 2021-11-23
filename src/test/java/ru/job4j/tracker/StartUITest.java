@@ -45,7 +45,7 @@ public class StartUITest{
         Tracker tracker = new Tracker();
         Item one = tracker.add(new Item("test1"));
         Input in = new StubInput(new String[]
-                {"0","1", "2"});
+                {"0","1", "1"});
         UserAction[] actions = {
                 new DeleteAction(out),
                 new ExitProgramAction(out)
