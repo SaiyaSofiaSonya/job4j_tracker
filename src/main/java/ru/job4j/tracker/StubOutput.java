@@ -11,6 +11,7 @@ public class StubOutput implements  Output {
             buffer.append("null");
         }
         buffer.append(System.lineSeparator());
+//        System.out.println("А баффер " + buffer.toString());
     }
 
     @Override
