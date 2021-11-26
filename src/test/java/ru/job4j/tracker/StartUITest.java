@@ -131,4 +131,64 @@ public class StartUITest{
                 )
         );
     }
+
+    @Test
+    public void whenFindByNameOutput() {
+        final DateTimeFormatter FORMATTER = DateTimeFormatter
+                .ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test1"));
+        Input in = new StubInput(new String[] {
+                "0", "test1",
+                "1"
+        });
+        UserAction[] actions = {
+                new FindItemByNameAction(out),
+                new ExitProgramAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu." + ln
+                        + "0. Find items by name" + ln
+                        + "1. Exit Program" + ln
+                        + "=== Find items by name ====" + ln
+                        + "Item{id=1, name='test1', created=" + one.getCreated().format(FORMATTER) + "}" + ln
+                        + "Menu." + ln
+                        + "0. Find items by name" + ln
+                        + "1. Exit Program" + ln
+                )
+        );
+    }
+
+    @Test
+    public void whenFindByIdOutput() {
+        final DateTimeFormatter FORMATTER = DateTimeFormatter
+                .ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
+        Output out = new StubOutput();
+        Tracker tracker = new Tracker();
+        Item one = tracker.add(new Item("test1"));
+        Input in = new StubInput(new String[] {
+                "0", "1",
+                "1"
+        });
+        UserAction[] actions = {
+                new FindItemByIdAction(out),
+                new ExitProgramAction(out)
+        };
+        new StartUI(out).init(in, tracker, actions);
+        String ln = System.lineSeparator();
+        assertThat(out.toString(), is(
+                "Menu." + ln
+                        + "0. Find item by id" + ln
+                        + "1. Exit Program" + ln
+                        + "=== Find item by id ====" + ln
+                        + "Item{id=1, name='test1', created=" + one.getCreated().format(FORMATTER) + "}" + ln
+                        + "Menu." + ln
+                        + "0. Find item by id" + ln
+                        + "1. Exit Program" + ln
+                )
+        );
+    }
 }
