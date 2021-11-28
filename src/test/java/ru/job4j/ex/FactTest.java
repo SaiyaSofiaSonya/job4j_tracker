@@ -9,6 +9,5 @@ public class FactTest {
         int in = -1;
         Fact fact = new Fact();
         fact.calc(in);
-
     }
 }
