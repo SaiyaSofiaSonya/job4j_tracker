@@ -16,11 +16,10 @@ public class FindEl {
     }
 
     public static void main(String[] args) {
-        String[] value = {"1","2","3"};
+        String[] value = {"1", "2", "3"};
         try {
            System.out.println(indexOf(value, "1"));
-        }
-        catch (ElementNotFoundException e) {
+        } catch (ElementNotFoundException e) {
             e.printStackTrace();
         }
     }
