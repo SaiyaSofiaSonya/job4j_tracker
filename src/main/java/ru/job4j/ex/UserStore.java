@@ -8,29 +8,29 @@ public class UserStore {
             if (user.getUsername().equals(login)) {
                 rsl =  user;
                 break;
-            } else {
-                throw new UserNotFoundException("Пользователя не найдено");
             }
         }
-        return rsl;
+        if (rsl == null) {
+            throw new UserNotFoundException("Пользователь не найден");
+        }
+       return rsl;
     }
 
     public static boolean validate(User user) throws UserInvalidException {
-        boolean rsl;
-        if (user.isValid() && user.getUsername().length() < 3) {
-            rsl = true;
-        } else {
-           throw new UserInvalidException("Пользователь не валидный");
+        boolean rsl = true;
+        if (!user.isValid() || user.getUsername().length() < 3) {
+            rsl = false;
+            throw new UserInvalidException("Пользователь не валидный");
         }
         return rsl;
     }
 
     public static void main(String[] args) {
         User[] users = {
-                new User("Petr Arsentev", true)
+                new User("Pe", true)
         };
         try {
-            User user = findUser(users, "Petr Arsentev");
+            User user = findUser(users, "Pe");
             if (validate(user)) {
             System.out.println("This user has an access");
             }
