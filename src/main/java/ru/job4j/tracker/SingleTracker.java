@@ -3,9 +3,6 @@ package ru.job4j.tracker;
 public class SingleTracker {
     private static SingleTracker instance = null;
     private Tracker tracker = new Tracker();
-    private final Item[] items = new Item[100];
-    private int ids = 1;
-    private int size = 0;
 
     private SingleTracker() {
     }
