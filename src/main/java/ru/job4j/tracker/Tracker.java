@@ -30,7 +30,7 @@ public class Tracker {
     }
 
     public List<Item> findAll() {
-        return items;
+        return List.copyOf(items);
     }
 
     public boolean replace(int id, Item item) {
@@ -39,9 +39,6 @@ public class Tracker {
         if (rsl) {
             item.setId(id);
             items.set(index, item);
-        }
-        for (Item each: items) {
-            System.out.println("Массив для реплейс " + each);
         }
         return rsl;
     }
