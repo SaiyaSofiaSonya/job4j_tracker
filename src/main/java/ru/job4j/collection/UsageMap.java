@@ -10,8 +10,9 @@ public class UsageMap {
         HashMap<String, String> names = new HashMap<>();
         names.put("1@mail.ru", "Vasilii Pavlov");
         names.put("2@mail.ru", "Pavel Vasiliev");
-        for (Map.Entry<String, String> entry : names.entrySet()) {
-            System.out.println(entry.toString());
+        names.put("2@mail.ru", "Pavel Vasiliev");
+        for (String key: names.keySet()) {
+            System.out.println(names.get(key));
         }
     }
 }
