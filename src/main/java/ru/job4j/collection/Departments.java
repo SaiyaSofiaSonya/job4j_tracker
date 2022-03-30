@@ -9,14 +9,10 @@ public class Departments {
         for (String value : deps) {
             String start = "";
             for (String each : value.split("/")) {
-                if (start.isEmpty()) {
-                    start = each;
-                } else {
-                    start = start + "/" + each;
-                }
+                start = (start.isEmpty()) ? each : start + "/" + each;
                 tmp.add(start);
             }
-        }
+            }
         return new ArrayList<>(tmp);
     }
 
