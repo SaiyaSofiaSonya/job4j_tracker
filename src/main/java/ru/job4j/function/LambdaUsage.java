@@ -13,7 +13,7 @@ public class LambdaUsage {
             return Integer.compare(left.length(), right.length());
         };
         strings.sort(comparator);
-        for(String string : strings) {
+        for (String string : strings) {
             System.out.println(string);
         }
     }
