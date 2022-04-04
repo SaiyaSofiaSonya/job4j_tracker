@@ -25,7 +25,7 @@ public class FunctionCalcTest {
 
     @Test
     public void whenLinearFunctionThenRepresentativeResults() {
-        List<Double> result = FunctionCalc.diapason(5, 8, x -> 2 * x);
+        List<Double> result = FunctionCalc.diapason(5, 8, x -> Math.pow(2, x));
         List<Double> expected = Arrays.asList(10D, 12D, 14D);
         assertThat(result, is(expected));
     }
