@@ -21,7 +21,7 @@ public class SchoolTest {
         );
         School sc = new School();
         Predicate<Student> pr = (student) -> {
-            return student.getScore() > 50 && student.getScore() <= 100;
+            return student.getScore() >= 70 && student.getScore() <= 100;
         };
         List<Student> rsl = sc.collect(students, pr);
         List<Student> expected = new ArrayList<>();
