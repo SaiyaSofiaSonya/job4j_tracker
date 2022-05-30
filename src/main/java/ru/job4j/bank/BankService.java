@@ -1,6 +1,7 @@
 package ru.job4j.bank;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * Класс описывает логику работы банковского сервиса:
@@ -51,12 +52,11 @@ public class BankService {
      * @return возвращает объект User
      */
     public Optional<User> findByPassport(String passport) {
-        return Optional.ofNullable(users
+        return users
                 .keySet()
                 .stream()
                 .filter(e -> e.getPassport().equals(passport))
-                .findFirst()
-                .orElse(null));
+                .findFirst();
     }
 
     /**
@@ -68,17 +68,12 @@ public class BankService {
      */
     public Optional<Account> findByRequisite(String passport, String requisite) {
         Optional<Account> account = Optional.empty();
-        Optional<User> user = findByPassport(passport);
-        if (user.isPresent()) {
-            return Optional.ofNullable(users
-                    .get(user.get())
+            return findByPassport(passport).flatMap(value -> users
+                    .get(value)
                     .stream()
                     .filter(e -> e.getRequisite().equals(requisite))
-                    .findFirst()
-                    .orElse(null));
+                    .findFirst());
         }
-        return Optional.empty();
-    }
 
     /**
      * Метод на вход принимает номер паспорта и номер счета для источника и цели.
