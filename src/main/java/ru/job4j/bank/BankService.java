@@ -67,7 +67,6 @@ public class BankService {
      * @return возвращает объект Account или null, если такого пользователя или счета не существует
      */
     public Optional<Account> findByRequisite(String passport, String requisite) {
-        Optional<Account> account = Optional.empty();
             return findByPassport(passport).flatMap(value -> users
                     .get(value)
                     .stream()
