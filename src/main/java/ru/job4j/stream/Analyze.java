@@ -11,7 +11,7 @@ public class Analyze {
     public static double averageScore(Stream<Pupil> stream) {
         return stream
                 .flatMap(pupil -> pupil.getSubjects().stream())
-                .mapToInt(subject -> subject.getScore())
+                .mapToInt(Subject::getScore)
                 .average()
                 .orElse(0.0D);
     }
@@ -24,7 +24,7 @@ public class Analyze {
                                 pupil
                                         .getSubjects()
                                         .stream()
-                                        .mapToInt(subject -> subject.getScore())
+                                        .mapToInt(Subject::getScore)
                                         .average()
                                         .orElse(0.0D)))
                 .collect(Collectors.toList());
@@ -37,7 +37,7 @@ public class Analyze {
                 .collect(Collectors
                         .groupingBy(pupil -> pupil.getName(),
                                 LinkedHashMap::new,
-                                Collectors.averagingDouble(subject -> subject.getScore())))
+                                Collectors.averagingDouble(Subject::getScore)))
                 .entrySet()
                 .stream()
                 .map(entry -> new Tuple(entry.getKey(),
@@ -52,7 +52,7 @@ public class Analyze {
                         pupil
                                 .getSubjects()
                                 .stream()
-                                .mapToInt(subject -> subject.getScore())
+                                .mapToInt(Subject::getScore)
                                 .asDoubleStream()
                                 .sum()))
                 .max(Comparator.comparing(Tuple::getScore))
@@ -64,8 +64,7 @@ public class Analyze {
                 .flatMap(pupil -> pupil.getSubjects().stream())
                 .collect(Collectors
                         .groupingBy(pupil -> pupil.getName(),
-                                LinkedHashMap::new,
-                                Collectors.summingDouble(subject -> subject.getScore())))
+                                Collectors.summingDouble(Subject::getScore)))
                 .entrySet()
                 .stream()
                 .map(entry -> new Tuple(entry.getKey(),
